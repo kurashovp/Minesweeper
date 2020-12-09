@@ -1,0 +1,14 @@
+/.idea/
+/gradle/
+*.gradle
+*.yaml
+*.html
+*.class
+*.txt
+*.bat
+/gradlew
+*/build/*
+*/build/tmp/compileJava/
+
+/Minesweeper/task/build/
+/Minesweeper/task/test/
