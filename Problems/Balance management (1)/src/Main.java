@@ -9,7 +9,25 @@ public class Main {
      * @return true if the balance has changed, otherwise - false.
      */
     public static boolean changeBalance(Account account, Operation operation, Long sum) {
-        // write your implementation here
+        boolean success;
+        switch (operation) {
+            case DEPOSIT:
+                account.setBalance(account.getBalance() + sum);
+                success = true;
+                break;
+            case WITHDRAW:
+                if (account.getBalance() < sum) {
+                    System.out.println("Not enough money to withdraw.");
+                    success = false;
+                } else {
+                    account.setBalance(account.getBalance() - sum);
+                    success = true;
+                }
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + operation);
+        }
+        return success;
     }
 
     /* Do not change code below */
