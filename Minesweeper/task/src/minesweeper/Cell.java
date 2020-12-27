@@ -3,7 +3,16 @@ package minesweeper;
 public class Cell {
     private boolean isMine = false;
     private boolean isFlag = false;
+    private boolean isOpen = false;
     private int value = 0;
+
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+    public void setOpen() {
+        isOpen = true;
+    }
 
     public int getValue() {
         return value;
@@ -32,7 +41,11 @@ public class Cell {
     @Override
     public String toString() {
         if (isFlag) return "*";
-        if (isMine) return "."; //"X";
-        return value == 0 ? "." : String.valueOf(value); // "¤" : "░")
+        if (isMine && isOpen) return "X"; //"X";
+        if (!isOpen) {
+            return ".";
+        } else {
+            return value == 0 ? "/" : String.valueOf(value); // "¤" : "░")
+        }
     }
 }
